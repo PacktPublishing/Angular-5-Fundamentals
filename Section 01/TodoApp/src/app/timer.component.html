@@ -1,0 +1,15 @@
+<div class="container text-center">
+    <countdown-timer [seconds]="25" (progress)="timeout = $event" (complete)="onCountdownCompleted()" ></countdown-timer>
+    <p>
+      <button class="btn btn-default" (click)="counter.seconds = 25">
+      reset
+      </button>
+    </p>
+    <p ngIf="counter.seconds < 10">
+        Beware, only !
+        <strong>{{ timeout }} seconds</strong>
+    </p>
+</div>
+
+<timer> [seconds]="timeout"></timer>
+<p ngIf="timeout === 0">Time up!</p>
