@@ -1,0 +1,70 @@
+<timer> [seconds]="timeout"></timer>
+<p *ngIf="timeout === 0">Time up!</p>
+
+<ul>
+    <li *ngFor="let employee of employees">
+    Employee {{ employee.name }}, {{ employee.position }}
+    </li>
+</ul>
+
+<div *ngFor="let items of items; let property = property">{{ item }}</div>
+
+<div *ngFor="let item of items; let first = first">
+    <span [ngClass]="{ 'first-css-class': first, 'item-css-class' : !first   }">
+    {{ item }}
+    </span>
+</div>
+
+@Component({
+    template : `
+    <*ngFor="let item of items; trackBy: trackFunction">{{ item }}</div>
+    `
+})
+export class SomeComponent {
+    trackFunction(index, item) {
+        return item ? item.id : undefined;
+    }
+}
+
+<div *ngIf="hero">
+    {{ hero.name }}
+</div>
+<div ngIf="!hero">
+    No hero set
+</div>
+
+<div *ngIf="person; else noperson">{{person.name}}</div>
+<div #noperson>No person set </div>
+
+person; else noperson
+
+<div class="item {{ item.selected ? 'selected' : ''}}"
+
+<p [ngStyle]="{ 'color': myColor, 'font-weight': myFontWeight }">
+    I am red and bold
+</p>
+
+<p [ngStyle]="myCssConfig">I am red and bold</p>
+
+
+<p [ngClass]="{{myClassNames}}">Hello Angular!</p>
+
+[ngClass]="{ 'class' : boolean-condition, 'class2' : boolean-condition-two
+}"
+
+<span [ngClass] ="{
+    'light' : jedi.side === 'Light',
+    'dark' : jedi.side === 'Dark'
+    }">
+   {{ jedi.name }}
+</span>
+
+<span class="light">Luke</span>
+
+<div [ngSwitch]="weatherForecaseDay">
+    <ng-template ngSwitchCase="today">{{weatherToday}}</ng-template>
+    <ng-template ngSwitchCase="tomorrow">{{weatherTomorrow}}</ng-template>
+    <ng-template ngSwitchDefault>
+    Pick a day to see the weather forecast
+    <ng-template>
+</div>
